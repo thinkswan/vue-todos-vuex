@@ -1,24 +1,30 @@
 # vue-todos-vuex
 
-## Project setup
+A Vue.js todo app that uses Vuex for state management.
+
+Based on the following tutorial:
+
+- [Traversy Media: Vuex Crash Course | State Management](https://www.youtube.com/watch?v=5lVQgZzLMHc)
+
+## Get started
+
 ```
+# Install dependencies
 yarn install
-```
 
-### Compiles and hot-reloads for development
-```
+# Start development server with hot reloading
 yarn serve
-```
+open http://localhost:8080/
 
-### Compiles and minifies for production
-```
+# Compile and minify for production
 yarn build
-```
 
-### Lints and fixes files
-```
+# Lint and fix files
 yarn lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Helpful docs
+
+- [Vue.js guide](https://vuejs.org/v2/guide/)
+- [Vue CLI guide](https://cli.vuejs.org/guide/)
+- [Vuex guide](https://vuex.vuejs.org/guide/)
