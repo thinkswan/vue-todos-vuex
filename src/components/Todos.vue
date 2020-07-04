@@ -12,8 +12,7 @@
         class="todo"
         :class="{ 'is-complete': todo.completed }"
       >
-        {{ todo.title }}
-        <i class="fas fa-trash-alt" @click="deleteTodo(todo.id)"></i>
+        <Todo :id="todo.id" :title="todo.title" />
       </div>
     </div>
   </div>
@@ -22,14 +21,16 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 import Legend from "./Legend";
+import Todo from "./Todo";
 
 export default {
   name: "Todos",
   components: {
-    Legend
+    Legend,
+    Todo
   },
   methods: {
-    ...mapActions(["fetchTodos", "deleteTodo", "updateTodo"]),
+    ...mapActions(["fetchTodos", "updateTodo"]),
     onDblClick(todo) {
       const updatedTodo = { ...todo, ...{ completed: !todo.completed } };
 
