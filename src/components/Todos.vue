@@ -2,11 +2,7 @@
   <div>
     <h3>Todos</h3>
 
-    <div class="legend">
-      <span>Double click to mark as complete</span>
-      <span> <span class="incomplete-box"></span> = Incomplete </span>
-      <span> <span class="complete-box"></span> = Complete </span>
-    </div>
+    <Legend />
 
     <div class="todos">
       <div
@@ -25,9 +21,13 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+import Legend from "./Legend";
 
 export default {
   name: "Todos",
+  components: {
+    Legend
+  },
   methods: {
     ...mapActions(["fetchTodos", "deleteTodo", "updateTodo"]),
     onDblClick(todo) {
@@ -71,26 +71,6 @@ i {
   right: 10px;
   color: #fff;
   cursor: pointer;
-}
-
-.legend {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 1rem;
-}
-
-.complete-box {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  background-color: #35495e;
-}
-
-.incomplete-box {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  background-color: #41b883;
 }
 
 @media (max-width: 500px) {
