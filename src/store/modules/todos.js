@@ -1,5 +1,7 @@
 import axios from "axios";
 
+const API_BASE = "https://jsonplaceholder.typicode.com/todos";
+
 const state = {
   todos: []
 };
@@ -10,40 +12,33 @@ const getters = {
 
 const actions = {
   async fetchTodos({ commit }) {
-    const response = await axios.get(
-      "https://jsonplaceholder.typicode.com/todos"
-    );
+    const response = await axios.get(API_BASE);
 
     commit("setTodos", response.data);
   },
   async addTodo({ commit }, title) {
-    const response = await axios.post(
-      "https://jsonplaceholder.typicode.com/todos",
-      {
-        title,
-        completed: false
-      }
-    );
+    const response = await axios.post(API_BASE, {
+      title,
+      completed: false
+    });
 
     commit("addTodo", response.data);
   },
   async deleteTodo({ commit }, id) {
-    await axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`);
+    await axios.delete(`${API_BASE}/${id}`);
 
     commit("deleteTodo", id);
   },
   async filterTodos({ commit }, event) {
     const limit = parseInt(event.target.value);
 
-    const response = await axios.get(
-      `https://jsonplaceholder.typicode.com/todos?_limit=${limit}`
-    );
+    const response = await axios.get(`${API_BASE}?_limit=${limit}`);
 
     commit("setTodos", response.data);
   },
   async updateTodo({ commit }, updatedTodo) {
     const response = await axios.put(
-      `https://jsonplaceholder.typicode.com/todos/${updatedTodo.id}`,
+      `${API_BASE}/${updatedTodo.id}`,
       updatedTodo
     );
 
